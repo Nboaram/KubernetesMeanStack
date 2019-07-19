@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ui-config
+data:
+  default.conf: |
+    server {
+        listen 80;
+        root /app/angularproject;
+        index index.html;
+        include /etc/nginx/mime.types;
+        location / {
+            try_files $uri $uri/ /;
+        }
+    }
+

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: database
+  labels:
+    app: database
+spec:
+  containers:
+    - name: database
+      image: mongo:latest
+      ports:
+      - containerPort: 8080
+  volumes:
+  - name: database-data
+    persistentVolumeClaim:
+      claimName: database-data
